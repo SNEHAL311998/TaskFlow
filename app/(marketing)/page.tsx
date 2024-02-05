@@ -26,7 +26,7 @@ const MarketingPage = () => {
       >
         <div className="mb-4 flex items-center border shadow-sm p-4 bg-amber-100 text-amber-700 rounded-full uppercase">
           <Medal className="h-6 w-6 mr-2" />
-          Best task managment
+          Best task managment software
         </div>
         <h1 className="max-w-5xl text-3xl md:text-6xl text-center text-neutral-800 mb-6">
           Efficiency Unleashed: Revolutionizing Task Management for Seamless
