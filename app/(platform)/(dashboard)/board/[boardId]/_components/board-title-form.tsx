@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/form/form-input";
 import { updateBoard } from "@/actions/update-board";
 import { useAction } from "@/hooks/use-action";
+import { useOrganization } from "@clerk/nextjs";
 
 interface BoardTitleFormProps {
   data: Board;
@@ -32,13 +33,21 @@ export const BoardTitleForm = ({
 
   const [title, setTitle] = useState(data.title);
   const [isEditing, setIsEditing] = useState(false);
+  const {
+    organization: currentOrganization,
+    membership,
+    isLoaded,
+  } = useOrganization();
 
   const enableEditing = () => {
-    setIsEditing(true);
-    setTimeout(() => {
-     inputRef.current?.focus();
-     inputRef.current?.select(); 
-    })
+
+    const isAdmin = membership?.role === 'org:admin'
+    if (isAdmin) setIsEditing(true);{
+      setTimeout(() => {
+       inputRef.current?.focus();
+       inputRef.current?.select(); 
+      })
+    }
   };
 
   const disableEditing = () => {

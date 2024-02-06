@@ -13,7 +13,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useOrganization } from "@clerk/nextjs";
-import { ADMIN, ALL, MEMBER } from "@/constants/roles";
 
 export type Organization = {
   id: string;
@@ -37,9 +36,6 @@ export const NavItem = ({
 }: NavItemProps) => {
   const router = useRouter();
   const pathname = usePathname();
-  const { membershipList, membership } = useOrganization({
-    membershipList: {},
-  });
 
   const routes = [
     {

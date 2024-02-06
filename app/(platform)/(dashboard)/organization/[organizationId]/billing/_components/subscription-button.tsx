@@ -8,6 +8,8 @@ import { stripeRedirect } from "@/actions/stripe-redirect";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { useOrganization } from "@clerk/nextjs";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 interface SubscriptionButtonProps {
   isPro: boolean;
@@ -15,11 +17,10 @@ interface SubscriptionButtonProps {
 
 export const SubscriptionButton = ({ isPro }: SubscriptionButtonProps) => {
   const proModal = useProModal();
-  let isAdmin: boolean = false;
 
   const { membership, isLoaded } = useOrganization();
 
-  isAdmin = membership?.role === "org:admin";
+  const isAdmin = membership?.role === "org:admin";
 
   const { execute, isLoading } = useAction(stripeRedirect, {
     onSuccess: (data) => {
@@ -43,7 +44,13 @@ export const SubscriptionButton = ({ isPro }: SubscriptionButtonProps) => {
       {isPro ? "Manage subscription" : "Upgrade to pro"}
     </Button>
   ) : isLoaded ? (
-    <h1>You dont have Permission</h1>
+    <Alert variant="destructive">
+      <AlertCircle />
+      <AlertTitle>Permission Denied</AlertTitle>
+      <AlertDescription>
+        You dont have the permission to access
+      </AlertDescription>
+    </Alert>
   ) : (
     <Skeleton className="w-60 absolute h-10" />
   );

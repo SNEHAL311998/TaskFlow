@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { FormPopover } from "@/components/form/form-popover";
 
 import { MobileSidebar } from "./mobile-sidebar";
+import { CreateBoardNavbar } from "./create-board";
 
 export const Navbar = () => {
   return (
@@ -15,13 +16,18 @@ export const Navbar = () => {
         <div className="hidden md:flex">
           <Logo />
         </div>
-        <FormPopover align="start" side="bottom" sideOffset={18}>
+        <CreateBoardNavbar />
+        {/* <FormPopover align="start" side="bottom" sideOffset={18}>
           <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto  py-1.5 px-2">
             Create
           </Button>
-        </FormPopover>
+        </FormPopover> */}
         <FormPopover>
-          <Button variant="primary" size="sm" className="rounded-sm block md:hidden">
+          <Button
+            variant="primary"
+            size="sm"
+            className="rounded-sm block md:hidden"
+          >
             <Plus className="h-4 w-4" />
           </Button>
         </FormPopover>
@@ -49,8 +55,8 @@ export const Navbar = () => {
               avatarBox: {
                 height: 30,
                 width: 30,
-              }
-            }
+              },
+            },
           }}
         />
       </div>

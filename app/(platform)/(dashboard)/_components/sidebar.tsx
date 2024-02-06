@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { useLocalStorage } from "usehooks-ts";
-import { useOrganization, useOrganizationList } from "@clerk/nextjs";
+import { useOrganization, useOrganizationList, useUser } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -22,10 +22,9 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
     {}
   );
 
-  const {
-    organization: activeOrganization,
-    isLoaded: isLoadedOrg
-  } = useOrganization();
+  const { organization: activeOrganization, isLoaded: isLoadedOrg } =
+    useOrganization();
+
   const { userMemberships, isLoaded: isLoadedOrgList } = useOrganizationList({
     userMemberships: {
       infinite: true,

@@ -5,11 +5,11 @@ import { db } from "@/lib/db";
 
 import { BoardNavbar } from "./_components/board-navbar";
 
-export async function generateMetadata({ 
-  params
- }: {
-  params: { boardId: string; };
- }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { boardId: string };
+}) {
   const { orgId } = auth();
 
   if (!orgId) {
@@ -21,8 +21,8 @@ export async function generateMetadata({
   const board = await db.board.findUnique({
     where: {
       id: params.boardId,
-      orgId
-    }
+      orgId,
+    },
   });
 
   return {
@@ -35,7 +35,7 @@ const BoardIdLayout = async ({
   params,
 }: {
   children: React.ReactNode;
-  params: { boardId: string; };
+  params: { boardId: string };
 }) => {
   const { orgId } = auth();
 
@@ -61,9 +61,7 @@ const BoardIdLayout = async ({
     >
       <BoardNavbar data={board} />
       <div className="absolute inset-0 bg-black/10" />
-      <main className="relative pt-28 h-full">
-        {children}
-      </main>
+      <main className="relative pt-28 h-full">{children}</main>
     </div>
   );
 };
