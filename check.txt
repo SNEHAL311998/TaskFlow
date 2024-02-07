@@ -1,9 +1,11 @@
 for stripe payment
 stripe listen --forward-to localhost:3000/api/webhook
 
-npm prisma generate
+npx prisma generate
 npx prisma migrate reset
 npx prisma db push
 npx prisma studio
 
 npm run dev
+
+# DATABASE_URL="mysql://root:admin@localhost:3306/mydb"
