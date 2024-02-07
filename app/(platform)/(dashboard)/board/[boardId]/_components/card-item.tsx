@@ -26,11 +26,11 @@ export const CardItem = ({ data, index }: CardItemProps) => {
             className="truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
           >
             {data.title}
-            {data?.description && (
+            {/* {data?.description && (
               <div className="p-3 my-2 bg-gray-200 truncate w-full border-2 border-transparent rounded-md">
                 {data.description}
               </div>
-            )}
+            )} */}
           </div>
         </>
       )}

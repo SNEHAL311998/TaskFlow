@@ -66,6 +66,7 @@ export const Header = ({ data }: HeaderProps) => {
   };
 
   const handleEdit = () => {
+    edit && inputRef.current?.focus();
     setEdit(!edit);
   };
 
@@ -80,7 +81,7 @@ export const Header = ({ data }: HeaderProps) => {
               onBlur={onBlur}
               id="title"
               defaultValue={title}
-              className="font-semibold text-xl px-1 text-neutral-700 bg-transparent border-transparent relative -left-1.5 w-[95%] focus-visible:bg-white focus-visible:border-input mb-0.5 truncate"
+              className="font-semibold text-xl px-1 text-sky-700 bg-transparent border-transparent relative -left-1.5 w-[95%] focus-visible:bg-white focus-visible:border-input mb-0.5 truncate"
             />
           ) : (
             <div className="font-semibold text-xl px-1 text-neutral-700 bg-transparent border-transparent relative -left-1.5 w-[95%] mb-0.5 truncate">
@@ -92,7 +93,7 @@ export const Header = ({ data }: HeaderProps) => {
           in list <span className="underline">{data.list.title}</span>
         </p>
         <div
-          className="flex gap-x-2 w-max hover:bg-muted p-2 rounded-md items-center mt-2 cursor-pointer"
+          className="flex gap-x-2 w-max hover:bg-muted p-2 rounded-md items-center mt-2 cursor-pointer select-none"
           onClick={() => handleEdit()}
         >
           <p>Edit</p>

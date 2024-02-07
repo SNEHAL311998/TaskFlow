@@ -14,6 +14,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { FormTextarea } from "@/components/form/form-textarea";
 import { FormSubmit } from "@/components/form/form-submit";
 import { Button } from "@/components/ui/button";
+import { TextEditor } from "@/components/text-editor";
 
 interface DescriptionProps {
   data: CardWithList;
@@ -81,10 +82,19 @@ export const Description = ({ data }: DescriptionProps) => {
       <div className="w-full">
         <p className="font-semibold text-neutral-700 mb-2">Description</p>
         {isEditing ? (
-          <form action={onSubmit} ref={formRef} className="space-y-2">
+          <form
+            action={onSubmit}
+            ref={formRef}
+            className="space-y-2 flex flex-col justify-between"
+          >
+            {/* <TextEditor
+              className={"h-[75%] w-[500px]"}
+              value={isEditing}
+              setValue={setIsEditing}
+            /> */}
             <FormTextarea
               id="description"
-              className="w-full mt-2 h-60"
+              className="w-full mt-2 h-44"
               placeholder="Add a more detailed description"
               defaultValue={data.description || undefined}
               errors={fieldErrors}
@@ -106,7 +116,7 @@ export const Description = ({ data }: DescriptionProps) => {
           <div
             onClick={enableEditing}
             role="button"
-            className="min-h-[78px] bg-neutral-200 text-sm font-medium py-3 px-3.5 rounded-md"
+            className="min-h-[78px] h-52 bg-neutral-200 text-sm font-medium py-3 px-3.5 rounded-md"
           >
             {data.description || "Add a more detailed description..."}
           </div>
