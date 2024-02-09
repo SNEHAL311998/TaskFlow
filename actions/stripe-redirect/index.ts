@@ -49,11 +49,14 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         payment_method_types: ["card"],
         mode: "subscription",
         billing_address_collection: "required",
+        shipping_address_collection: {
+          allowed_countries: ['IN'],
+        },
         customer_email: user.emailAddresses[0].emailAddress,
         line_items: [
           {
             price_data: {
-              currency: "inr",
+              currency: "INR",
               product_data: {
                 name: "TaskFlow Pro",
                 description: "Unlimited boards for your organization",

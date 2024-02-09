@@ -9,3 +9,7 @@ npx prisma studio
 npm run dev
 
 # DATABASE_URL="mysql://root:admin@localhost:3306/mydb"
+
+https://console.aiven.io/account/a490cb4c8420/project/snehal311998-d562/services/taskflow-939066a/settings
+
+https://dashboard.stripe.com/test/webhooks/we_1Oh7fnSFlPnYkuK6XadugC6t
