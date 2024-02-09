@@ -50,7 +50,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         mode: "subscription",
         billing_address_collection: "required",
         shipping_address_collection: {
-          allowed_countries: ['IN'],
+          allowed_countries: ['US','IN'],
         },
         customer_email: user.emailAddresses[0].emailAddress,
         line_items: [
